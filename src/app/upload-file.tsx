@@ -2,6 +2,7 @@
 
 import { useS3Upload } from "next-s3-upload";
 import { useState } from "react";
+import Image from "next/image";
 
 export function UploadFile() {
   let [imageUrl, setImageUrl] = useState<string>();
@@ -22,7 +23,12 @@ export function UploadFile() {
       <button onClick={openFileDialog}>Select file</button>
       <div className="flex flex-1 overflow-hidden">
         {imageUrl && (
-          <img className="object-contain" src={imageUrl} data-test="image" />
+          <Image
+            alt="file"
+            className="object-contain"
+            src={imageUrl}
+            data-test="image"
+          />
         )}
       </div>
     </div>
