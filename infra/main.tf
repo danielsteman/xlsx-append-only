@@ -40,7 +40,15 @@ resource "aws_s3_bucket" "devapp" {
   }
 }
 
-resource "aws_iam_policy" "devapp" {
+resource "aws_iam_user" "sa" {
+  name = "${var.app_name}-sa"
+}
+
+resource "aws_iam_access_key" "sa" {
+  user = aws_iam_user.sa.name
+}
+
+resource "aws_iam_policy" "sa" {
   name        = "next-s3-upload"
   description = "Policy for Next.js S3 upload"
 
@@ -67,6 +75,11 @@ resource "aws_iam_policy" "devapp" {
       }
     ]
   })
+}
+
+resource "aws_iam_user_policy_attachment" "sa" {
+  user       = aws_iam_user.sa.name
+  policy_arn = aws_iam_policy.sa.arn
 }
 
 resource "aws_s3_bucket_cors_configuration" "devapp" {
