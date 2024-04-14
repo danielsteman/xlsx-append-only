@@ -28,12 +28,45 @@ variable "random_string" {
   default = "276f3ffe"
 }
 
+variable "account_id" {
+  default = "730335219622"
+}
+
 resource "aws_s3_bucket" "devapp" {
   bucket = var.app_name
 
   tags = {
     Environment = "Dev"
   }
+}
+
+resource "aws_iam_policy" "devapp" {
+  name        = "next-s3-upload"
+  description = "Policy for Next.js S3 upload"
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid      = "STSToken"
+        Effect   = "Allow"
+        Action   = "sts:GetFederationToken"
+        Resource = ["arn:aws:sts::${var.account_id}:federated-user/S3UploadWebToken"]
+      },
+      {
+        Sid    = "S3UploadAssets"
+        Effect = "Allow"
+        Action = "s3:*"
+        Resource = [
+          "arn:aws:s3:::${var.app_name}",
+          "arn:aws:s3:::${var.app_name}/*.jpg",
+          "arn:aws:s3:::${var.app_name}/*.jpeg",
+          "arn:aws:s3:::${var.app_name}/*.png",
+          "arn:aws:s3:::${var.app_name}/*.gif",
+        ]
+      }
+    ]
+  })
 }
 
 resource "aws_s3_bucket_cors_configuration" "devapp" {
