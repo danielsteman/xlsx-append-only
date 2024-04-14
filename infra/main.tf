@@ -67,10 +67,7 @@ resource "aws_iam_policy" "sa" {
         Action = "s3:*"
         Resource = [
           "arn:aws:s3:::${var.app_name}",
-          "arn:aws:s3:::${var.app_name}/*.jpg",
-          "arn:aws:s3:::${var.app_name}/*.jpeg",
-          "arn:aws:s3:::${var.app_name}/*.png",
-          "arn:aws:s3:::${var.app_name}/*.gif",
+          "arn:aws:s3:::${var.app_name}/*.xlsx",
         ]
       }
     ]
