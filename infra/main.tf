@@ -36,6 +36,16 @@ resource "aws_s3_bucket" "devapp" {
   }
 }
 
+resource "aws_s3_bucket_cors_configuration" "devapp" {
+  bucket = aws_s3_bucket.devapp.id
+  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["PUT", "POST"]
+    allowed_origins = ["*"]
+    expose_headers  = ["ETag"]
+  }
+}
+
 resource "aws_s3_bucket_public_access_block" "devapp" {
   bucket = aws_s3_bucket.devapp.id
 
