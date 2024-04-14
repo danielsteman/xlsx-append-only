@@ -29,11 +29,18 @@ variable "random_string" {
 }
 
 resource "aws_s3_bucket" "devapp" {
-  bucket = "xlsx-append-only"
+  bucket = var.app_name
 
   tags = {
     Environment = "Dev"
   }
+}
+
+resource "aws_s3_bucket_public_access_block" "devapp" {
+  bucket = aws_s3_bucket.devapp.id
+
+  block_public_acls  = true
+  ignore_public_acls = true
 }
 
 resource "aws_s3_bucket" "state" {
