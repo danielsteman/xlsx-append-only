@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Box,
   Button,
   Flex,
   Grid,
@@ -11,6 +10,7 @@ import {
   Text,
   useTheme,
 } from "@chakra-ui/react";
+import { Link } from "@chakra-ui/next-js";
 import Logo from "./components/logo";
 
 export default function Home() {
@@ -34,15 +34,23 @@ export default function Home() {
             </Heading>
           </Flex>
           <Spacer />
-          <Box>Products</Box>
-          <Box>Solutions</Box>
-          <Box>Pricing</Box>
-          <Box>Company</Box>
+          <Link href="products" _hover={{ color: "gray.400" }}>
+            Products
+          </Link>
+          <Link href="solutions" _hover={{ color: "gray.400" }}>
+            Solutions
+          </Link>
+          <Link href="pricing" _hover={{ color: "gray.400" }}>
+            Pricing
+          </Link>
+          <Link href="company" _hover={{ color: "gray.400" }}>
+            Company
+          </Link>
         </Flex>
       </GridItem>
       <GridItem borderColor="blue" borderWidth={1} py={8} pr={8}>
         <Flex flexDir="column" gap={8}>
-          <Heading fontWeight={900}>
+          <Heading fontSize="5xl" fontWeight={900}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry.
           </Heading>
@@ -52,7 +60,9 @@ export default function Home() {
             scrambled it to make a type specimen book.
           </Text>
           <Flex flexDir="row" gap={8}>
-            <Button p={6}>Get started</Button>
+            <Button p={6} px={10}>
+              Get started
+            </Button>
             <Button
               p={6}
               variant="outline"
@@ -66,7 +76,9 @@ export default function Home() {
           </Flex>
         </Flex>
       </GridItem>
-      <GridItem bgColor="green">2</GridItem>
+      <GridItem borderColor="green" borderWidth={1}>
+        2
+      </GridItem>
     </Grid>
   );
 }
