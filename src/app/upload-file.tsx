@@ -3,6 +3,7 @@
 import { useS3Upload } from "next-s3-upload";
 import { useState } from "react";
 import Image from "next/image";
+import { Box, Flex } from "@chakra-ui/react";
 
 export function UploadFile() {
   let [fileUrl, setFileUrl] = useState<string>();
@@ -15,14 +16,13 @@ export function UploadFile() {
   };
 
   return (
-    <div className="flex flex-col h-screen p-6">
+    <Flex direction="column">
       <FileInput
         onChange={handleFileChange}
         data-test="file-input"
         className="block"
       />
       <button onClick={openFileDialog}>Select file</button>
-      <div className="flex flex-1 overflow-hidden"></div>
-    </div>
+    </Flex>
   );
 }
