@@ -68,6 +68,8 @@ resource "aws_iam_policy" "sa" {
         Resource = [
           "arn:aws:s3:::${var.app_name}",
           "arn:aws:s3:::${var.app_name}/*.xlsx",
+          "arn:aws:s3:::${var.app_name}/*.xlsm",
+          "arn:aws:s3:::${var.app_name}/*.xls",
         ]
       }
     ]
