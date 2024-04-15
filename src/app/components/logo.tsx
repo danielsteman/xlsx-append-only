@@ -5,16 +5,16 @@ const Logo = () => (
     id="Capa_1"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    width="40px"
-    height="40px"
+    width="35px"
+    height="35px"
     viewBox="0 0 95.103 95.103"
     xmlSpace="preserve"
   >
     {/* Define the linear gradient */}
     <defs>
       <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#FF6A00" />
-        <stop offset="100%" stopColor="#EE0979" />
+        <stop offset="0%" stopColor="#ec4899" />
+        <stop offset="100%" stopColor="#6366f1" />
       </linearGradient>
     </defs>
 

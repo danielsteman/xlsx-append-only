@@ -1,6 +1,14 @@
 "use client";
 
-import { Flex, Grid, GridItem, useTheme } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Spacer,
+  useTheme,
+} from "@chakra-ui/react";
 import Logo from "./components/logo";
 
 export default function Home() {
@@ -15,9 +23,19 @@ export default function Home() {
       mx="auto"
       maxWidth={maxWidth}
     >
-      <GridItem colSpan={{ base: 1, md: 2 }} bgColor="teal">
-        <Flex flexDir="row" gap={2}>
-          <Logo />
+      <GridItem colSpan={{ base: 1, md: 2 }}>
+        <Flex flexDir="row" gap={8} align="center">
+          <Flex flexDir="row" align="center" gap={2}>
+            <Logo />
+            <Heading size="lg" fontWeight={900}>
+              ingestify
+            </Heading>
+          </Flex>
+          <Spacer />
+          <Box>Products</Box>
+          <Box>Solutions</Box>
+          <Box>Pricing</Box>
+          <Box>Company</Box>
         </Flex>
       </GridItem>
       <GridItem bgColor="blue">1</GridItem>
