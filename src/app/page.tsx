@@ -8,7 +8,6 @@ export default function Home() {
   const maxWidth = theme.breakpoints.xl;
   return (
     <Grid
-      bgColor="black"
       height="100%"
       templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
       gap={4}
