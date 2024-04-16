@@ -45,10 +45,14 @@ const Workspace = () => {
           <DrawerHeader>
             <DrawerCloseButton />
           </DrawerHeader>
-          <DrawerBody>
-            <Flex flexDir="column">
-              <Link href={"/"}>Your databases</Link>
-              <Link href={"/"}>Settings</Link>
+          <DrawerBody py={4}>
+            <Flex flexDir="column" gap={4}>
+              <Link href={"/"} fontWeight={600}>
+                Your databases
+              </Link>
+              <Link href={"/"} fontWeight={600}>
+                Settings
+              </Link>
             </Flex>
           </DrawerBody>
         </DrawerContent>
