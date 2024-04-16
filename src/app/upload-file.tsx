@@ -23,6 +23,8 @@ export function UploadFile() {
         className="block"
       />
       <Button
+        p={6}
+        px={8}
         w="fit-content"
         variant="borderDrop"
         color="white"
