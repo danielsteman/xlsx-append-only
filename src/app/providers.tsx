@@ -11,6 +11,19 @@ const theme = extendTheme({
       },
     },
   },
+  components: {
+    Button: {
+      variants: {
+        borderDrop: {
+          variant: "outline",
+          color: "gray.100",
+          borderWidth: 0.5,
+          borderColor: "gray.600",
+          _hover: { borderColor: "black" },
+        },
+      },
+    },
+  },
 });
 
 export function Providers({ children }: { children: React.ReactNode }) {
