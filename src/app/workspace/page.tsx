@@ -1,3 +1,5 @@
+"use client";
+
 import { UploadFile } from "../upload-file";
 
 const Workspace = () => {
