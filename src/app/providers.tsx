@@ -24,6 +24,9 @@ const theme = extendTheme({
       },
     },
   },
+  config: {
+    initialColorMode: "dark",
+  },
 });
 
 export function Providers({ children }: { children: React.ReactNode }) {
