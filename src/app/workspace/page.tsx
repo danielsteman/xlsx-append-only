@@ -1,11 +1,8 @@
 "use client";
 
-import { Box, Button, Flex, IconButton, Spacer } from "@chakra-ui/react";
+import { Box, Flex, IconButton, Spacer } from "@chakra-ui/react";
 import { UploadFile } from "../upload-file";
 import Logo from "../components/logo";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { FaHamburger } from "react-icons/fa";
-import { GiHamburger } from "react-icons/gi";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 const Workspace = () => {
