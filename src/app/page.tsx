@@ -60,9 +60,11 @@ export default function Home() {
             scrambled it to make a type specimen book.
           </Text>
           <Flex flexDir="row" gap={8}>
-            <Button p={6} px={10}>
-              Get started
-            </Button>
+            <Link href="workspace">
+              <Button p={6} px={10}>
+                Get started
+              </Button>
+            </Link>
             <Button p={6} variant="borderDrop">
               See products
             </Button>
