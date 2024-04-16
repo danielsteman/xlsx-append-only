@@ -3,11 +3,14 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
+  fonts: {
+    heading: "var(--font-inter)",
+  },
   styles: {
     global: {
       body: {
-        bg: "black",
-        color: "#ECECEC",
+        bg: "slate.900",
+        color: "white",
       },
     },
   },

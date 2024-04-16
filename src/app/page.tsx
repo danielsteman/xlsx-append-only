@@ -29,7 +29,7 @@ export default function Home() {
         <Flex flexDir="row" gap={8} align="center">
           <Flex flexDir="row" align="center" gap={2}>
             <Logo />
-            <Heading size="md" fontWeight={900}>
+            <Heading size="md" fontWeight={1000}>
               ingestify
             </Heading>
           </Flex>
@@ -50,7 +50,7 @@ export default function Home() {
       </GridItem>
       <GridItem borderColor="gray" borderWidth={1} py={8} pr={8}>
         <Flex flexDir="column" gap={8}>
-          <Heading fontSize="5xl" fontWeight={900}>
+          <Heading fontSize="5xl" fontWeight={800}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry.
           </Heading>
