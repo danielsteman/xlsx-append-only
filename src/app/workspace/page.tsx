@@ -3,6 +3,7 @@
 import {
   Box,
   Drawer,
+  DrawerBody,
   DrawerCloseButton,
   DrawerContent,
   DrawerHeader,
@@ -15,13 +16,14 @@ import {
 import { UploadFile } from "../upload-file";
 import Logo from "../components/logo";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { Link } from "@chakra-ui/next-js";
 
 const Workspace = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <Box>
-        <Flex flexDir="row" p={2} px={4} bgColor={"slate.100"} align="center">
+        <Flex flexDir="row" p={2} px={4} bgColor={"slate.800"} align="center">
           <Logo />
           <Spacer />
           <IconButton
@@ -31,17 +33,24 @@ const Workspace = () => {
             icon={<HamburgerIcon />}
             aria-label={"menu"}
             fontSize="24px"
+            bgColor="slate.700"
+            color="white"
           ></IconButton>
         </Flex>
         <UploadFile />
       </Box>
       <Drawer isOpen={isOpen} onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader borderBottomWidth="1px">
-            Create a new account
+        <DrawerContent bgColor="slate.800">
+          <DrawerHeader>
+            <DrawerCloseButton />
           </DrawerHeader>
+          <DrawerBody>
+            <Flex flexDir="column">
+              <Link href={"/"}>Your databases</Link>
+              <Link href={"/"}>Settings</Link>
+            </Flex>
+          </DrawerBody>
         </DrawerContent>
       </Drawer>
     </>
