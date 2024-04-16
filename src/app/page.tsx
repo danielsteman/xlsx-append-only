@@ -63,14 +63,7 @@ export default function Home() {
             <Button p={6} px={10}>
               Get started
             </Button>
-            <Button
-              p={6}
-              variant="outline"
-              color="gray.100"
-              borderWidth={0.5}
-              borderColor="gray.600"
-              _hover={{ borderColor: "black" }}
-            >
+            <Button p={6} variant="borderDrop">
               See products
             </Button>
           </Flex>
