@@ -61,7 +61,7 @@ export default function Home() {
           </Text>
           <Flex flexDir="row" gap={8}>
             <Link href="workspace">
-              <Button p={6} px={10}>
+              <Button p={6} px={10} colorScheme="primary">
                 Get started
               </Button>
             </Link>
