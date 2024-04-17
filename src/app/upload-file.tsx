@@ -12,6 +12,8 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { PlusSquareIcon } from "@chakra-ui/icons";
+import { BiPlus } from "react-icons/bi";
 
 export function UploadFile() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -64,7 +66,14 @@ export function UploadFile() {
         id="fileInput"
       />
       <label htmlFor="fileInput">
-        <Button onClick={onOpen} variant="borderDrop">
+        <Button
+          leftIcon={<BiPlus fontSize={20} />}
+          onClick={onOpen}
+          variant="solid"
+          colorScheme="primary"
+          pl={2}
+          pr={4}
+        >
           Select File
         </Button>
       </label>
@@ -84,7 +93,7 @@ export function UploadFile() {
           </ModalBody>
           <ModalFooter>
             <Button
-              colorScheme="gray"
+              colorScheme="primary"
               onClick={handleUpload}
               isLoading={uploading}
             >

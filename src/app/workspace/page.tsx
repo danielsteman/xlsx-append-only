@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Text,
   Box,
   Drawer,
   DrawerBody,
@@ -9,11 +10,13 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
+  Heading,
+  HStack,
   IconButton,
   LinkProps,
-  Show,
   Spacer,
   useDisclosure,
+  VStack,
 } from "@chakra-ui/react";
 import { UploadFile } from "../upload-file";
 import Logo from "../components/logo";
@@ -43,24 +46,28 @@ const Workspace = () => {
   return (
     <>
       <Box>
-        <Show below="lg">
-          <Flex flexDir="row" p={2} px={4} bgColor={"slate.800"} align="center">
-            <Logo />
-            <Spacer />
-
-            <IconButton
-              onClick={onOpen}
-              p={0}
-              size="md"
-              icon={<HamburgerIcon />}
-              aria-label={"menu"}
-              fontSize="24px"
-              bgColor="slate.700"
-              color="white"
-            ></IconButton>
-          </Flex>
-        </Show>
-        <UploadFile />
+        <Flex flexDir="row" p={2} px={4} bgColor={"slate.800"} align="center">
+          <Logo />
+          <Spacer />
+          <IconButton
+            onClick={onOpen}
+            p={0}
+            size="md"
+            icon={<HamburgerIcon />}
+            aria-label={"menu"}
+            fontSize="24px"
+            bgColor="slate.700"
+            color="white"
+          ></IconButton>
+        </Flex>
+        <HStack p={8}>
+          <VStack align="left">
+            <Heading size="md">Databases</Heading>
+            <Text>A list of all your databases</Text>
+          </VStack>
+          <Spacer />
+          <UploadFile />
+        </HStack>
       </Box>
       <Drawer isOpen={isOpen} onClose={onClose}>
         <DrawerOverlay />
