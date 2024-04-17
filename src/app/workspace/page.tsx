@@ -11,6 +11,7 @@ import {
   Flex,
   IconButton,
   LinkProps,
+  Show,
   Spacer,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -42,20 +43,23 @@ const Workspace = () => {
   return (
     <>
       <Box>
-        <Flex flexDir="row" p={2} px={4} bgColor={"slate.800"} align="center">
-          <Logo />
-          <Spacer />
-          <IconButton
-            onClick={onOpen}
-            p={0}
-            size="md"
-            icon={<HamburgerIcon />}
-            aria-label={"menu"}
-            fontSize="24px"
-            bgColor="slate.700"
-            color="white"
-          ></IconButton>
-        </Flex>
+        <Show below="lg">
+          <Flex flexDir="row" p={2} px={4} bgColor={"slate.800"} align="center">
+            <Logo />
+            <Spacer />
+
+            <IconButton
+              onClick={onOpen}
+              p={0}
+              size="md"
+              icon={<HamburgerIcon />}
+              aria-label={"menu"}
+              fontSize="24px"
+              bgColor="slate.700"
+              color="white"
+            ></IconButton>
+          </Flex>
+        </Show>
         <UploadFile />
       </Box>
       <Drawer isOpen={isOpen} onClose={onClose}>
