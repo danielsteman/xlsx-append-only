@@ -10,6 +10,7 @@ import {
   DrawerOverlay,
   Flex,
   IconButton,
+  LinkProps,
   Spacer,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -17,6 +18,24 @@ import { UploadFile } from "../upload-file";
 import Logo from "../components/logo";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "@chakra-ui/next-js";
+
+const DrawerLink: React.FC<{ href: string; text: string } & LinkProps> = ({
+  href,
+  text,
+}) => {
+  return (
+    <Link
+      href={href}
+      fontWeight={600}
+      _hover={{ bgColor: "slate.700" }}
+      rounded={4}
+      p={1}
+      px={2}
+    >
+      {text}
+    </Link>
+  );
+};
 
 const Workspace = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -46,13 +65,9 @@ const Workspace = () => {
             <DrawerCloseButton />
           </DrawerHeader>
           <DrawerBody py={4}>
-            <Flex flexDir="column" gap={4}>
-              <Link href={"/"} fontWeight={600}>
-                Your databases
-              </Link>
-              <Link href={"/"} fontWeight={600}>
-                Settings
-              </Link>
+            <Flex flexDir="column" gap={2}>
+              <DrawerLink href="/" text="Your databases" />
+              <DrawerLink href="/" text="Settings" />
             </Flex>
           </DrawerBody>
         </DrawerContent>
