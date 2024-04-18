@@ -14,12 +14,17 @@ import {
   Spacer,
   Checkbox,
   Box,
+  Divider,
+  AbsoluteCenter,
 } from "@chakra-ui/react";
 import Logo from "../components/logo";
 import { Link } from "@chakra-ui/next-js";
 import React from "react";
+import { GrGoogle } from "react-icons/gr";
+import { BsGoogle } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
 
-const SignUp = () => {
+const Login = () => {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
 
@@ -35,17 +40,9 @@ const SignUp = () => {
         boxShadow="dark-lg"
       >
         <Logo />
-        <Heading size="md">Create an account</Heading>
-        <Text>
-          Already have an account?{" "}
-          <Link fontWeight={700} href="login">
-            Log in
-          </Link>
-        </Text>
+        <Heading size="md">Login</Heading>
         <form>
           <FormControl isRequired p={2}>
-            <FormLabel>Name</FormLabel>
-            <Input placeholder="Name" borderColor={"slate.400"} />
             <FormLabel mt={4}>Email address</FormLabel>
             <Input type="email" placeholder="Email" borderColor={"slate.400"} />
             <FormLabel mt={4}>Password</FormLabel>
@@ -66,22 +63,26 @@ const SignUp = () => {
                 </Button>
               </InputRightElement>
             </InputGroup>
-            <HStack py={4} gap={4}>
+            <HStack py={4} gap={4} alignItems="center">
               <Checkbox size="md" color="slate.300" defaultChecked>
                 Remember me
               </Checkbox>
               <Spacer />
-              <Link href="reset-password">
-                <Text size="xs" color="primary" fontWeight={600}>
-                  Forgot password
-                </Text>
+              <Link href="reset-password" fontSize="sm" color="primary">
+                Forgot password
               </Link>
             </HStack>
             <Button colorScheme="primary" mt={4} w="100%">
-              Sign up
+              Continue with email
             </Button>
-            <Button colorScheme="primary" mt={4} w="100%">
-              Sign up with Google
+
+            <Button
+              variant="outline"
+              w="100%"
+              leftIcon={<FcGoogle fontSize={20} />}
+              mt={4}
+            >
+              Continue with Google
             </Button>
           </FormControl>
         </form>
@@ -90,4 +91,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;
