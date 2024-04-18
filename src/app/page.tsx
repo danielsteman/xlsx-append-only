@@ -48,7 +48,7 @@ export default function Home() {
           </Link>
         </Flex>
       </GridItem>
-      <GridItem borderColor="gray" borderWidth={1} py={8} pr={8}>
+      <GridItem py={8} pr={8}>
         <Flex flexDir="column" gap={8}>
           <Heading fontSize="5xl" fontWeight={800}>
             Lorem Ipsum is simply dummy text of the printing and typesetting

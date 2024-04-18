@@ -13,13 +13,12 @@ import {
   Center,
   HStack,
   Spacer,
-  Checkbox,
 } from "@chakra-ui/react";
 import Logo from "../components/logo";
 import { Link } from "@chakra-ui/next-js";
 import React from "react";
 
-const SignUp = () => {
+const ResetPassword = () => {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
 
@@ -33,20 +32,10 @@ const SignUp = () => {
         boxShadow="dark-lg"
       >
         <Logo />
-        <Heading size="md">Create an account</Heading>
-        <Text>
-          Already have an account?{" "}
-          <Link fontWeight={700} href="login">
-            Log in
-          </Link>
-        </Text>
+        <Heading size="md">Reset your password</Heading>
         <form>
           <FormControl isRequired p={2}>
-            <FormLabel>Name</FormLabel>
-            <Input placeholder="Name" borderColor={"slate.400"} />
-            <FormLabel mt={4}>Email address</FormLabel>
-            <Input type="email" placeholder="Email" borderColor={"slate.400"} />
-            <FormLabel mt={4}>Password</FormLabel>
+            <FormLabel mt={4}>New password</FormLabel>
             <InputGroup>
               <Input
                 type={show ? "text" : "password"}
@@ -64,19 +53,8 @@ const SignUp = () => {
                 </Button>
               </InputRightElement>
             </InputGroup>
-            <HStack py={4}>
-              <Checkbox size="md" color="slate.300">
-                Remember me
-              </Checkbox>
-              <Spacer />
-              <Link href={"reset-password"}>
-                <Text size="xs" color="slate.300" fontWeight={600}>
-                  Forgot password
-                </Text>
-              </Link>
-            </HStack>
             <Button colorScheme="primary" mt={4} w="100%">
-              Sign up
+              Reset password
             </Button>
           </FormControl>
         </form>
@@ -85,4 +63,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default ResetPassword;
