@@ -10,10 +10,10 @@ import {
   Button,
   InputGroup,
   InputRightElement,
-  Center,
   HStack,
   Spacer,
   Checkbox,
+  Box,
 } from "@chakra-ui/react";
 import Logo from "../components/logo";
 import { Link } from "@chakra-ui/next-js";
@@ -24,8 +24,10 @@ const SignUp = () => {
   const handleClick = () => setShow(!show);
 
   return (
-    <Center h="calc(100vh)">
+    <Box h="100%" display="flex" justifyContent="center" alignItems="center">
       <VStack
+        maxW="30em"
+        w="fit-content"
         gap={4}
         bgColor="slate.800"
         borderRadius={8}
@@ -64,13 +66,13 @@ const SignUp = () => {
                 </Button>
               </InputRightElement>
             </InputGroup>
-            <HStack py={4}>
-              <Checkbox size="md" color="slate.300">
+            <HStack py={4} gap={4}>
+              <Checkbox size="md" color="slate.300" defaultChecked>
                 Remember me
               </Checkbox>
               <Spacer />
               <Link href={"reset-password"}>
-                <Text size="xs" color="slate.300" fontWeight={600}>
+                <Text size="xs" color="primary" fontWeight={600}>
                   Forgot password
                 </Text>
               </Link>
@@ -81,7 +83,7 @@ const SignUp = () => {
           </FormControl>
         </form>
       </VStack>
-    </Center>
+    </Box>
   );
 };
 
