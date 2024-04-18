@@ -18,6 +18,7 @@ import {
 import Logo from "../components/logo";
 import { Link } from "@chakra-ui/next-js";
 import React from "react";
+import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
   const [show, setShow] = React.useState(false);
@@ -66,22 +67,16 @@ const SignUp = () => {
                 </Button>
               </InputRightElement>
             </InputGroup>
-            <HStack py={4} gap={4}>
-              <Checkbox size="md" color="slate.300" defaultChecked>
-                Remember me
-              </Checkbox>
-              <Spacer />
-              <Link href="reset-password">
-                <Text size="xs" color="primary" fontWeight={600}>
-                  Forgot password
-                </Text>
-              </Link>
-            </HStack>
-            <Button colorScheme="primary" mt={4} w="100%">
+            <Button colorScheme="primary" mt={8} w="100%">
               Sign up
             </Button>
-            <Button colorScheme="primary" mt={4} w="100%">
-              Sign up with Google
+            <Button
+              variant="outline"
+              w="100%"
+              leftIcon={<FcGoogle fontSize={20} />}
+              mt={4}
+            >
+              Continue with Google
             </Button>
           </FormControl>
         </form>

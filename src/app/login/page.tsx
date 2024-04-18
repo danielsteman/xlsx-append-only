@@ -40,7 +40,7 @@ const Login = () => {
         boxShadow="dark-lg"
       >
         <Logo />
-        <Heading size="md">Login</Heading>
+        <Heading size="md">Login to your account</Heading>
         <form>
           <FormControl isRequired p={2}>
             <FormLabel mt={4}>Email address</FormLabel>
@@ -75,7 +75,6 @@ const Login = () => {
             <Button colorScheme="primary" mt={4} w="100%">
               Continue with email
             </Button>
-
             <Button
               variant="outline"
               w="100%"
