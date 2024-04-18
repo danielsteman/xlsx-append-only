@@ -49,16 +49,20 @@ export default function Home() {
             Company
           </Link>
           <Divider orientation="vertical" height="25px" />
-          <Button variant="link" color="white">
-            Login
-          </Button>
-          <Button
-            variant="outline"
-            color="white"
-            _hover={{ bgColor: "primary.500", borderColor: "rgba(0,0,0,0)" }}
-          >
-            Sign up
-          </Button>
+          <Link href="login">
+            <Button variant="link" color="white">
+              Login
+            </Button>
+          </Link>
+          <Link href="signup">
+            <Button
+              variant="outline"
+              color="white"
+              _hover={{ bgColor: "primary.500", borderColor: "rgba(0,0,0,0)" }}
+            >
+              Sign up
+            </Button>
+          </Link>
         </Flex>
       </GridItem>
       <GridItem py={8} pr={8}>
