@@ -1,7 +1,9 @@
 "use client";
 
 import {
+  Box,
   Button,
+  Divider,
   Flex,
   Grid,
   GridItem,
@@ -46,6 +48,17 @@ export default function Home() {
           <Link href="company" _hover={{ color: "gray.400" }}>
             Company
           </Link>
+          <Divider orientation="vertical" height="25px" />
+          <Button variant="link" color="white">
+            Login
+          </Button>
+          <Button
+            variant="outline"
+            color="white"
+            _hover={{ bgColor: "primary.500", borderColor: "rgba(0,0,0,0)" }}
+          >
+            Sign up
+          </Button>
         </Flex>
       </GridItem>
       <GridItem py={8} pr={8}>
