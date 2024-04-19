@@ -15,6 +15,38 @@ import {
 import { Link } from "@chakra-ui/next-js";
 import Logo from "./components/logo";
 
+const Navigation = () => (
+  <>
+    <Link href="products" _hover={{ color: "gray.400" }}>
+      Products
+    </Link>
+    <Link href="solutions" _hover={{ color: "gray.400" }}>
+      Solutions
+    </Link>
+    <Link href="pricing" _hover={{ color: "gray.400" }}>
+      Pricing
+    </Link>
+    <Link href="company" _hover={{ color: "gray.400" }}>
+      Company
+    </Link>
+    <Divider orientation="vertical" height="25px" />
+    <Link href="login">
+      <Button variant="link" color="white">
+        Login
+      </Button>
+    </Link>
+    <Link href="signup">
+      <Button
+        variant="outline"
+        color="white"
+        _hover={{ bgColor: "primary.500", borderColor: "rgba(0,0,0,0)" }}
+      >
+        Sign up
+      </Button>
+    </Link>
+  </>
+);
+
 export default function Home() {
   const theme = useTheme();
   const maxWidth = theme.breakpoints.xl;
@@ -36,33 +68,7 @@ export default function Home() {
             </Heading>
           </Flex>
           <Spacer />
-          <Link href="products" _hover={{ color: "gray.400" }}>
-            Products
-          </Link>
-          <Link href="solutions" _hover={{ color: "gray.400" }}>
-            Solutions
-          </Link>
-          <Link href="pricing" _hover={{ color: "gray.400" }}>
-            Pricing
-          </Link>
-          <Link href="company" _hover={{ color: "gray.400" }}>
-            Company
-          </Link>
-          <Divider orientation="vertical" height="25px" />
-          <Link href="login">
-            <Button variant="link" color="white">
-              Login
-            </Button>
-          </Link>
-          <Link href="signup">
-            <Button
-              variant="outline"
-              color="white"
-              _hover={{ bgColor: "primary.500", borderColor: "rgba(0,0,0,0)" }}
-            >
-              Sign up
-            </Button>
-          </Link>
+          <Navigation />
         </Flex>
       </GridItem>
       <GridItem py={8} pr={8}>
