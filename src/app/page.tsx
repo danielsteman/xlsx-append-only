@@ -8,48 +8,69 @@ import {
   Grid,
   GridItem,
   Heading,
+  IconButton,
   Spacer,
   Text,
+  useBreakpointValue,
   useTheme,
 } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
 import Logo from "./components/logo";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
-const Navigation = () => (
-  <>
-    <Link href="products" _hover={{ color: "gray.400" }}>
-      Products
-    </Link>
-    <Link href="solutions" _hover={{ color: "gray.400" }}>
-      Solutions
-    </Link>
-    <Link href="pricing" _hover={{ color: "gray.400" }}>
-      Pricing
-    </Link>
-    <Link href="company" _hover={{ color: "gray.400" }}>
-      Company
-    </Link>
-    <Divider orientation="vertical" height="25px" />
-    <Link href="login">
-      <Button variant="link" color="white">
-        Login
-      </Button>
-    </Link>
-    <Link href="signup">
-      <Button
-        variant="outline"
+const Navigation: React.FC<{ dropDown: boolean }> = ({ dropDown }) => {
+  if (dropDown) {
+    return (
+      <IconButton
+        // onClick={onOpen}
+        variant="ghost"
+        p={0}
+        size="md"
+        icon={<HamburgerIcon />}
+        aria-label={"menu"}
+        fontSize="24px"
         color="white"
-        _hover={{ bgColor: "primary.500", borderColor: "rgba(0,0,0,0)" }}
-      >
-        Sign up
-      </Button>
-    </Link>
-  </>
-);
+      ></IconButton>
+    );
+  } else {
+    return (
+      <>
+        <Link href="products" _hover={{ color: "gray.400" }}>
+          Products
+        </Link>
+        <Link href="solutions" _hover={{ color: "gray.400" }}>
+          Solutions
+        </Link>
+        <Link href="pricing" _hover={{ color: "gray.400" }}>
+          Pricing
+        </Link>
+        <Link href="company" _hover={{ color: "gray.400" }}>
+          Company
+        </Link>
+        <Divider orientation="vertical" height="25px" />
+        <Link href="login">
+          <Button variant="link" color="white">
+            Login
+          </Button>
+        </Link>
+        <Link href="signup">
+          <Button
+            variant="outline"
+            color="white"
+            _hover={{ bgColor: "primary.500", borderColor: "rgba(0,0,0,0)" }}
+          >
+            Sign up
+          </Button>
+        </Link>
+      </>
+    );
+  }
+};
 
 export default function Home() {
   const theme = useTheme();
   const maxWidth = theme.breakpoints.xl;
+  const dropDown = useBreakpointValue({ base: true, md: false }) ?? true;
   return (
     <Grid
       height="100%"
@@ -68,7 +89,7 @@ export default function Home() {
             </Heading>
           </Flex>
           <Spacer />
-          <Navigation />
+          <Navigation dropDown={dropDown} />
         </Flex>
       </GridItem>
       <GridItem py={8} pr={8}>
