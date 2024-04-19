@@ -1,9 +1,13 @@
 "use client";
 
 import {
-  Box,
   Button,
   Divider,
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
   Flex,
   Grid,
   GridItem,
@@ -12,58 +16,75 @@ import {
   Spacer,
   Text,
   useBreakpointValue,
+  useDisclosure,
   useTheme,
 } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
 import Logo from "./components/logo";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
-const Navigation: React.FC<{ dropDown: boolean }> = ({ dropDown }) => {
+const NavigationContent = () => {
+  return (
+    <>
+      <Link href="products" _hover={{ color: "gray.400" }}>
+        Products
+      </Link>
+      <Link href="solutions" _hover={{ color: "gray.400" }}>
+        Solutions
+      </Link>
+      <Link href="pricing" _hover={{ color: "gray.400" }}>
+        Pricing
+      </Link>
+      <Link href="company" _hover={{ color: "gray.400" }}>
+        Company
+      </Link>
+      <Divider orientation="vertical" height="25px" />
+      <Link href="login">
+        <Button variant="link" color="white">
+          Login
+        </Button>
+      </Link>
+      <Link href="signup">
+        <Button
+          variant="outline"
+          color="white"
+          _hover={{ bgColor: "primary.500", borderColor: "rgba(0,0,0,0)" }}
+        >
+          Sign up
+        </Button>
+      </Link>
+    </>
+  );
+};
+
+const Navigation = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const dropDown = useBreakpointValue({ base: true, md: false }) ?? true;
   if (dropDown) {
     return (
-      <IconButton
-        // onClick={onOpen}
-        variant="ghost"
-        p={0}
-        size="md"
-        icon={<HamburgerIcon />}
-        aria-label={"menu"}
-        fontSize="24px"
-        color="white"
-      ></IconButton>
-    );
-  } else {
-    return (
       <>
-        <Link href="products" _hover={{ color: "gray.400" }}>
-          Products
-        </Link>
-        <Link href="solutions" _hover={{ color: "gray.400" }}>
-          Solutions
-        </Link>
-        <Link href="pricing" _hover={{ color: "gray.400" }}>
-          Pricing
-        </Link>
-        <Link href="company" _hover={{ color: "gray.400" }}>
-          Company
-        </Link>
-        <Divider orientation="vertical" height="25px" />
-        <Link href="login">
-          <Button variant="link" color="white">
-            Login
-          </Button>
-        </Link>
-        <Link href="signup">
-          <Button
-            variant="outline"
-            color="white"
-            _hover={{ bgColor: "primary.500", borderColor: "rgba(0,0,0,0)" }}
-          >
-            Sign up
-          </Button>
-        </Link>
+        <IconButton
+          onClick={onOpen}
+          variant="ghost"
+          p={0}
+          size="md"
+          icon={<HamburgerIcon />}
+          aria-label={"menu"}
+          fontSize="24px"
+          color="white"
+        ></IconButton>
+        <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
+          <DrawerOverlay />
+          <DrawerContent bg="rgba(0,0,0,0.1)" blur="2px">
+            <DrawerBody>
+              <NavigationContent />
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
       </>
     );
+  } else {
+    return <NavigationContent />;
   }
 };
 
@@ -89,7 +110,7 @@ export default function Home() {
             </Heading>
           </Flex>
           <Spacer />
-          <Navigation dropDown={dropDown} />
+          <Navigation />
         </Flex>
       </GridItem>
       <GridItem py={8} pr={8}>
