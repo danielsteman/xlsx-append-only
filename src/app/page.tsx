@@ -22,6 +22,8 @@ import {
 import { Link } from "@chakra-ui/next-js";
 import Logo from "./components/logo";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import LoginButton from "./components/loginbutton";
+import SignUpButton from "./components/signupbutton";
 
 const NavigationContent = () => {
   return (
@@ -39,20 +41,8 @@ const NavigationContent = () => {
         Company
       </Link>
       <Divider orientation="vertical" height="25px" />
-      <Link href="login">
-        <Button variant="link" color="white">
-          Login
-        </Button>
-      </Link>
-      <Link href="signup">
-        <Button
-          variant="outline"
-          color="white"
-          _hover={{ bgColor: "primary.500", borderColor: "rgba(0,0,0,0)" }}
-        >
-          Sign up
-        </Button>
-      </Link>
+      <LoginButton />
+      <SignUpButton />
     </>
   );
 };
