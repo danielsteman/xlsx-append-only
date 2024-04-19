@@ -6,7 +6,6 @@ import {
   Drawer,
   DrawerBody,
   DrawerContent,
-  DrawerHeader,
   DrawerOverlay,
   Flex,
   Grid,
@@ -18,6 +17,7 @@ import {
   useBreakpointValue,
   useDisclosure,
   useTheme,
+  VStack,
 } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
 import Logo from "./components/logo";
@@ -25,31 +25,10 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import LoginButton from "./components/loginbutton";
 import SignUpButton from "./components/signupbutton";
 
-const NavigationContent = () => {
-  return (
-    <>
-      <Link href="products" _hover={{ color: "gray.400" }}>
-        Products
-      </Link>
-      <Link href="solutions" _hover={{ color: "gray.400" }}>
-        Solutions
-      </Link>
-      <Link href="pricing" _hover={{ color: "gray.400" }}>
-        Pricing
-      </Link>
-      <Link href="company" _hover={{ color: "gray.400" }}>
-        Company
-      </Link>
-      <Divider orientation="vertical" height="25px" />
-      <LoginButton />
-      <SignUpButton />
-    </>
-  );
-};
-
 const Navigation = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const dropDown = useBreakpointValue({ base: true, md: false }) ?? true;
+  const items = ["Products", "Solutions", "Pricing", "Company"];
   if (dropDown) {
     return (
       <>
@@ -67,14 +46,41 @@ const Navigation = () => {
           <DrawerOverlay />
           <DrawerContent bg="rgba(0,0,0,0.1)" blur="2px">
             <DrawerBody>
-              <NavigationContent />
+              <VStack gap={2}>
+                <LoginButton />
+                <SignUpButton />
+                {items.map((item) => (
+                  <Link
+                    key={item}
+                    href={item.toLowerCase()}
+                    _hover={{ color: "gray.400" }}
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </VStack>
             </DrawerBody>
           </DrawerContent>
         </Drawer>
       </>
     );
   } else {
-    return <NavigationContent />;
+    return (
+      <>
+        {items.map((item) => (
+          <Link
+            key={item}
+            href={item.toLowerCase()}
+            _hover={{ color: "gray.400" }}
+          >
+            {item}
+          </Link>
+        ))}
+        <Divider orientation="vertical" height="25px" />
+        <LoginButton />
+        <SignUpButton />
+      </>
+    );
   }
 };
 
