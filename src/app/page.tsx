@@ -87,7 +87,6 @@ const Navigation = () => {
 export default function Home() {
   const theme = useTheme();
   const maxWidth = theme.breakpoints.xl;
-  const dropDown = useBreakpointValue({ base: true, md: false }) ?? true;
   return (
     <Grid
       height="100%"
