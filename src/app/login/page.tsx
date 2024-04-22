@@ -23,6 +23,7 @@ import React from "react";
 import { GrGoogle } from "react-icons/gr";
 import { BsGoogle } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
+import GoogleLoginButton from "../components/googleloginbutton";
 
 const Login = () => {
   const [show, setShow] = React.useState(false);
@@ -75,14 +76,7 @@ const Login = () => {
             <Button colorScheme="primary" mt={4} w="100%">
               Continue with email
             </Button>
-            <Button
-              variant="outline"
-              w="100%"
-              leftIcon={<FcGoogle fontSize={20} />}
-              mt={4}
-            >
-              Continue with Google
-            </Button>
+            <GoogleLoginButton />
           </FormControl>
         </form>
       </VStack>

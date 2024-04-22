@@ -19,6 +19,7 @@ import Logo from "../components/logo";
 import { Link } from "@chakra-ui/next-js";
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
+import GoogleLoginButton from "../components/googleloginbutton";
 
 const SignUp = () => {
   const [show, setShow] = React.useState(false);
@@ -70,14 +71,7 @@ const SignUp = () => {
             <Button colorScheme="primary" mt={8} w="100%">
               Sign up
             </Button>
-            <Button
-              variant="outline"
-              w="100%"
-              leftIcon={<FcGoogle fontSize={20} />}
-              mt={4}
-            >
-              Continue with Google
-            </Button>
+            <GoogleLoginButton />
           </FormControl>
         </form>
       </VStack>
