@@ -13,9 +13,18 @@ datasource db {
   url      = env("DATABASE_URL")
   directUrl = env("DIRECT_DATABASE_URL")
 }
+
 model User {
   id              Int      @id @default(autoincrement())
   username        String   @unique
   hashed_password String
+  sessions        Session[]
   // Add other fields as needed
+}
+
+model Session {
+  id        Int      @id
+  userId    String
+  expiresAt DateTime
+  user      User     @relation(references: [id], fields: [id], onDelete: Cascade)
 }

@@ -19,3 +19,11 @@ docker run -d \
     -p 5432:5432 \
     postgres:latest
 ```
+
+### Migrations
+
+Use `.env.local`, which is expected by Next.js.
+
+```
+dotenv -e .env.local -- npx prisma migrate dev --name init
+```
