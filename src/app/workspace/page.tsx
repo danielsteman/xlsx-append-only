@@ -17,13 +17,11 @@ import {
   Spacer,
   useDisclosure,
   VStack,
-  Tooltip,
 } from "@chakra-ui/react";
 import { UploadFile } from "../upload-file";
 import Logo from "../components/logo";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "@chakra-ui/next-js";
-import { BiLogOut } from "react-icons/bi";
 import SignOutButton from "../components/signoutbutton";
 
 const DrawerLink: React.FC<{ href: string; text: string } & LinkProps> = ({
