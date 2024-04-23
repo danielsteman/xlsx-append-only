@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import Logo from "../components/logo";
 import { Link } from "@chakra-ui/next-js";
-import React, { FormEvent } from "react";
+import React, { FormEvent, useState } from "react";
 import GoogleLoginButton from "../components/googleloginbutton";
 
 interface FormData {
