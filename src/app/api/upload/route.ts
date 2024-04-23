@@ -1,11 +1,11 @@
-import { NextApiResponse } from "next";
+import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
 
-export default async function POST(req: Request, res: NextApiResponse) {
+export async function POST(req: Request) {
   const uuid = uuidv4();
 
   const data = await req.formData();
   console.log(data);
 
-  return res.json({ id: uuid });
+  return NextResponse.json({ id: uuid });
 }
