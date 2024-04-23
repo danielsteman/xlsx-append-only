@@ -24,8 +24,17 @@ interface FormData {
 }
 
 const SignUp = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    password: "",
+  });
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -55,15 +64,28 @@ const SignUp = () => {
         <form onSubmit={handleSubmit}>
           <FormControl isRequired p={2}>
             <FormLabel>Name</FormLabel>
-            <Input placeholder="Name" borderColor={"slate.400"} />
+            <Input
+              placeholder="Name"
+              borderColor={"slate.400"}
+              value={formData.name}
+              onChange={handleChange}
+            />
             <FormLabel mt={4}>Email address</FormLabel>
-            <Input type="email" placeholder="Email" borderColor={"slate.400"} />
+            <Input
+              type="email"
+              placeholder="Email"
+              borderColor={"slate.400"}
+              value={formData.email}
+              onChange={handleChange}
+            />
             <FormLabel mt={4}>Password</FormLabel>
             <InputGroup>
               <Input
                 type={show ? "text" : "password"}
                 placeholder="Password"
                 borderColor={"slate.400"}
+                value={formData.password}
+                onChange={handleChange}
               />
               <InputRightElement width="4.5rem">
                 <Button
