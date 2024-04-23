@@ -10,20 +10,28 @@ import {
   Button,
   InputGroup,
   InputRightElement,
-  HStack,
-  Spacer,
-  Checkbox,
   Box,
 } from "@chakra-ui/react";
 import Logo from "../components/logo";
 import { Link } from "@chakra-ui/next-js";
-import React from "react";
-import { FcGoogle } from "react-icons/fc";
+import React, { FormEvent } from "react";
 import GoogleLoginButton from "../components/googleloginbutton";
+
+interface FormData {
+  name: string;
+  email: string;
+  password: string;
+}
 
 const SignUp = () => {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Your form submission logic goes here
+    console.log("Form submitted!");
+  };
 
   return (
     <Box h="100%" display="flex" justifyContent="center" alignItems="center">
@@ -44,7 +52,7 @@ const SignUp = () => {
             Log in
           </Link>
         </Text>
-        <form>
+        <form onSubmit={handleSubmit}>
           <FormControl isRequired p={2}>
             <FormLabel>Name</FormLabel>
             <Input placeholder="Name" borderColor={"slate.400"} />
