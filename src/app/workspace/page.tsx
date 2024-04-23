@@ -17,11 +17,14 @@ import {
   Spacer,
   useDisclosure,
   VStack,
+  Tooltip,
 } from "@chakra-ui/react";
 import { UploadFile } from "../upload-file";
 import Logo from "../components/logo";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "@chakra-ui/next-js";
+import { BiLogOut } from "react-icons/bi";
+import SignOutButton from "../components/signoutbutton";
 
 const DrawerLink: React.FC<{ href: string; text: string } & LinkProps> = ({
   href,
@@ -76,9 +79,14 @@ const Workspace = () => {
             <DrawerCloseButton />
           </DrawerHeader>
           <DrawerBody py={4}>
-            <Flex flexDir="column" gap={2}>
+            <Flex flexDir="column" gap={2} h="100%">
               <DrawerLink href="/" text="Your databases" />
               <DrawerLink href="/" text="Settings" />
+              <Spacer />
+              <HStack>
+                <Spacer />
+                <SignOutButton />
+              </HStack>
             </Flex>
           </DrawerBody>
         </DrawerContent>
