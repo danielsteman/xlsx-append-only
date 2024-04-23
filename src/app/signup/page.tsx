@@ -68,7 +68,7 @@ const SignUp = () => {
                 </Button>
               </InputRightElement>
             </InputGroup>
-            <Button colorScheme="primary" mt={8} w="100%">
+            <Button type="submit" colorScheme="primary" mt={8} w="100%">
               Sign up
             </Button>
             <GoogleLoginButton />
