@@ -12,7 +12,6 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import axios from "axios";
-import { PlusSquareIcon } from "@chakra-ui/icons";
 import { BiPlus } from "react-icons/bi";
 
 export function UploadFile() {
